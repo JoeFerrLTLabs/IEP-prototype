@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEP Meeting Prep Tool - Prototype</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .header {
+            background: white;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #212529;
+        }
+        
+        .header p {
+            color: #6c757d;
+            font-size: 18px;
+        }
+        
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 20px 32px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .nav-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #212529;
+        }
+        
+        .nav-link {
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .nav-link:hover {
+            background: #f8f9fa;
+            color: #212529;
+        }
+        
+        .card {
+            background: white;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 32px;
+        }
+        
+        .button-grid {
+            display: grid;
+            gap: 24px;
+        }
+        
+        .action-button {
+            background: #212529;
+            color: white;
+            border: none;
+            padding: 24px 32px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        
+        .action-button:hover {
+            background: #495057;
+            transform: translateY(-1px);
+        }
+        
+        .secondary-button {
+            background: white;
+            color: #212529;
+            border: 2px solid #dee2e6;
+            padding: 16px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .secondary-button:hover {
+            border-color: #212529;
+            background: #f8f9fa;
+        }
+        
+        .upload-area {
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 48px;
+            text-align: center;
+            margin-bottom: 24px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .upload-area:hover {
+            border-color: #6c757d;
+            background: #f8f9fa;
+        }
+        
+        .upload-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: #4285f4;
+        }
+        
+        .upload-text {
+            font-size: 18px;
+            color: #212529;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .upload-subtext {
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #212529;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .list-item {
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid #dee2e6;
+        }
+        
+        .list-item.important {
+            border-left-color: #6c757d;
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+        }
+        
+        .section {
+            margin-bottom: 32px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #212529;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-icon {
+            margin-right: 12px;
+            font-size: 24px;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            background: #f8f9fa;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        
+        .overview-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .overview-label {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+        
+        .overview-value {
+            color: #212529;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .checkbox-item input {
+            margin-right: 12px;
+            margin-top: 4px;
+        }
+        
+        .highlight-box {
+            background: #212529;
+            color: white;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        
+        .highlight-box h3 {
+            margin-bottom: 12px;
+        }
+        
+        .reference-link {
+            color: #495057;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 8px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+            display: inline-block;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        
+        .reference-link:hover {
+            background: #e9ecef;
+            color: #212529;
+        }
+        
+        .reference-link.disabled {
+            opacity: 0.6;
+            cursor: default;
+            background: #f1f3f4;
+            color: #6c757d;
+        }
+        
+        .tell-more-link {
+            color: #6c757d;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 6px;
+            background: #f8f9fa;
+            border-radius: 3px;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+        
+        .tell-more-link.disabled {
+            opacity: 0.6;
+            cursor: default;
+            background: #f1f3f4;
+            color: #6c757d;
+        }
+        
+        .service-item {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .service-header {
+            font-size: 18px;
+            color: #212529;
+            margin-bottom: 12px;
+        }
+        
+        .service-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .service-line {
+            font-size: 14px;
+            color: #495057;
+        }
+        
+        .needs-indicator {
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .needs-indicator.yes {
+            background: #f8f9fa;
+            color: #198754;
+        }
+        
+        .needs-indicator.no {
+            background: #f8f9fa;
+            color: #dc3545;
+        }
+        
+        .drill-down-button {
+            background: #f8f9fa;
+            color: #495057;
+            border: 1px solid #dee2e6;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            cursor: default;
+            display: inline-block;
+            margin-top: 8px;
+            opacity: 0.8;
+        }
+        
+        .question-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        
+        .mini-drill-button {
+            background: #f8f9fa;
+            color: #6c757d;
+            border: 1px solid #e9ecef;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 500;
+            cursor: default;
+            opacity: 0.8;
+        }
+        
+        .service-drill {
+            margin-top: 8px;
+        }
+        
+        .alert-box-new {
+            background: #f8f9fa;
+            border: 2px solid #dc3545;
+            color: #212529;
+            padding: 16px 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .alert-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+        
+        .alert-icon-new {
+            font-size: 20px;
+            color: #dc3545;
+            flex-shrink: 0;
+        }
+        
+        .alert-text {
+            flex: 1;
+        }
+        
+        .alert-title-new {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: #212529;
+        }
+        
+        .alert-subtitle-new {
+            font-size: 13px;
+            color: #6c757d;
+            margin: 0;
+        }
+        
+        .alert-stats-new {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        
+        .stat-box-new {
+            background: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+            text-align: center;
+            min-width: 60px;
+        }
+        
+        .stat-number-new {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 2px;
+            color: #212529;
+        }
+        
+        .stat-label-new {
+            font-size: 10px;
+            color: #6c757d;
+            line-height: 1.2;
+        }
+        
+        .evidence-box-new {
+            background: #f8f9fa;
+            border: 1px solid #0066cc;
+            border-left: 4px solid #0066cc;
+            color: #212529;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 24px;
+        }
+        
+        .evidence-title-new {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            color: #0066cc;
+        }
+        
+        .evidence-icon-new {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+        
+        .action-section-new {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .action-title-new {
+            font-size: 18px;
+            font-weight: 600;
+            color: #28a745;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .action-icon-new {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        
+        .power-question-new {
+            background: white;
+            padding: 16px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            border: 1px solid #dee2e6;
+            border-left: 3px solid #6c757d;
+        }
+        
+        .question-text-new {
+            font-size: 14px;
+            font-weight: 600;
+            color: #212529;
+            margin-bottom: 6px;
+        }
+        
+        .question-why-new {
+            font-size: 12px;
+            color: #6c757d;
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+        
+        .other-services-new {
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 6px;
+            margin-top: 24px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .other-title-new {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .service-summary-new {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 4px;
+            margin-bottom: 6px;
+            font-size: 12px;
+            border: 1px solid #f1f3f4;
+        }
+        
+        .status-ok-new {
+            color: #28a745;
+            font-weight: 500;
+            font-size: 11px;
+        }
+        
+        .status-partial-new {
+            color: #ffc107;
+            font-weight: 500;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- HOMEPAGE -->
+        <div id="homepage" class="page active">
+            <div class="header">
+                <h1>IEP Meeting Prep</h1>
+                <p>Prepare for successful IEP meetings with confidence</p>
+            </div>
+            
+            <div class="card">
+                <div class="button-grid">
+                    <button class="action-button" onclick="showPage('create-account')">Create Account</button>
+                    <button class="action-button" onclick="showPage('upload-iep')">Upload IEP</button>
+                    <button class="action-button" onclick="showPage('ask-question')">Ask a Question</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CREATE ACCOUNT -->
+        <div id="create-account" class="page">
+            <div class="nav-bar">
+                <button class="nav-link" onclick="showPage('homepage')">← Back to Homepage</button>
+                <div class="nav-title">Create Account</div>
+                <div></div>
+            </div>
+            
+            <div class="card">
+                <h2 style="margin-bottom: 24px;">Tell us about your child</h2>
+                
+                <div class="form-group">
+                    <label class="form-label">State you live in</label>
+                    <input type="text" class="form-input" placeholder="e.g., California">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">School district</label>
+                    <input type="text" class="form-input" placeholder="e.g., San Francisco Unified">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Child's name</label>
+                    <input type="text" class="form-input" placeholder="First name only">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Key diagnoses</label>
+                    <input type="text" class="form-input" placeholder="e.g., Autism, ADHD, Learning Disability">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Upload picture of child (optional)</label>
+                    <div class="upload-area">
+                        <div class="upload-icon">📷</div>
+                        <div class="upload-text">Add a photo</div>
+                        <div class="upload-subtext">Drag & drop or click to browse</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Additional Documents</label>
+                    <div class="upload-area">
+                        <div class="upload-icon">📄</div>
+                        <div class="upload-text">Upload evaluation reports, previous IEPs, etc.</div>
+                        <div class="upload-subtext">Drag & drop PDFs or click to browse</div>
+                    </div>
+                    
+                    <div style="margin-top: 16px;">
+                        <h4 style="margin-bottom: 12px; color: #6c757d; font-size: 14px;">UPLOADED DOCUMENTS</h4>
+                        <div class="list-item" style="font-size: 14px; padding: 12px;">
+                            <strong>Speech Language Evaluation - March 2024</strong><br>
+                            <span style="color: #6c757d;">Dr. Jennifer Kim, SLP</span>
+                        </div>
+                        <div class="list-item" style="font-size: 14px; padding: 12px;">
+                            <strong>Psychological Assessment - February 2024</strong><br>
+                            <span style="color: #6c757d;">School District Evaluation</span>
+                        </div>
+                        <div style="color: #6c757d; font-size: 14px; padding: 8px 12px; font-style: italic;">
+                            Additional documents will appear here after upload
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="action-button" onclick="showPage('homepage')" style="width: 100%;">Update Profile</button>
+            </div>
+        </div>
+
+        <!-- UPLOAD IEP -->
+        <div id="upload-iep" class="page">
+            <div class="nav-bar">
+                <button class="nav-link" onclick="showPage('homepage')">← Back to Homepage</button>
+                <div class="nav-title">Upload IEP</div>
+                <div></div>
+            </div>
+            
+            <div class="card">
+                <div class="upload-area" onclick="document.getElementById('iep-file').click()">
+                    <div class="upload-icon">📄</div>
+                    <div class="upload-text">Upload your IEP document</div>
+                    <div class="upload-subtext">Drag & drop PDF or click to browse</div>
+                    <input type="file" id="iep-file" style="display: none;" accept=".pdf">
+                </div>
+                
+                <button class="action-button" onclick="showPage('results')" style="width: 100%;">Prep for my IEP Meeting</button>
+                
+                <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #dee2e6;">
+                    <h3 style="margin-bottom: 16px; color: #6c757d; font-size: 16px;">Past IEP Submissions</h3>
+                    <div class="list-item">
+                        <strong>Sarah's IEP - Grade 3</strong><br>
+                        <span style="color: #6c757d; font-size: 14px;">Uploaded March 15, 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ASK QUESTION -->
+        <div id="ask-question" class="page">
+            <div class="nav-bar">
+                <button class="nav-link" onclick="showPage('homepage')">← Back to Homepage</button>
+                <div class="nav-title">Ask a Question</div>
+                <div></div>
+            </div>
+            
+            <div class="card">
+                <h3 style="margin-bottom: 16px;">What would you like to know?</h3>
+                <p style="color: #6c757d; margin-bottom: 16px;">This feature will connect you with IEP experts (coming soon)</p>
+                <textarea style="width: 100%; padding: 12px; border: 1px solid #dee2e6; border-radius: 4px; font-size: 16px; margin-bottom: 16px;" rows="4" placeholder="Type your question here..."></textarea>
+                <button class="secondary-button">Submit Question</button>
+            </div>
+        </div>
+
+        <!-- RESULTS - New Wow Moment Design -->
+        <div id="results" class="page">
+            <div class="nav-bar">
+                <button class="nav-link" onclick="showPage('upload-iep')">← Back</button>
+                <div class="nav-title">Your Meeting Prep Guide</div>
+                <div></div>
+            </div>
+            
+            <div class="card">
+                <!-- THE WOW MOMENT - Lead with the problem -->
+                <div class="alert-box-new">
+                    <div class="alert-left">
+                        <div class="alert-icon-new">🚨</div>
+                        <div class="alert-text">
+                            <div class="alert-title-new">Service Gap Detected</div>
+                            <div class="alert-subtitle-new">Sarah may not be receiving adequate speech therapy</div>
+                            <div class="drill-down-button">📄 Take me to this section of the IEP</div>
+                        </div>
+                    </div>
+                    <div class="alert-stats-new">
+                        <div class="stat-box-new">
+                            <div class="stat-number-new">2x</div>
+                            <div class="stat-label-new">Current weekly</div>
+                        </div>
+                        <div class="stat-box-new">
+                            <div class="stat-number-new">4-5x</div>
+                            <div class="stat-label-new">Recommended</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- EVIDENCE - Why this matters -->
+                <div class="evidence-box-new">
+                    <div class="evidence-title-new">
+                        <span class="evidence-icon-new">🔬</span>
+                        Why This Matters
+                    </div>
+                    <p>Children with Childhood Apraxia of Speech need intensive, frequent therapy (4-5x/week) for optimal progress. Research shows 2x/week therapy yields only 15% improvement vs 65% with proper frequency.</p>
+                    <button class="reference-link" onclick="showPage('asha-reference')" style="margin-top: 12px;">📖 View ASHA Research Evidence</button>
+                </div>
+                
+                <!-- ACTION ITEMS - What to do about it -->
+                <div class="action-section-new">
+                    <div class="action-title-new">
+                        <span class="action-icon-new">⚡</span>
+                        Questions That Get Results
+                    </div>
+                    
+                    <div class="power-question-new">
+                        <div class="question-text-new">"What research supports 2x/week therapy for childhood apraxia?"</div>
+                        <div class="question-why-new">💡 <strong>Why this works:</strong> Forces them to justify their decision with evidence. They likely can't.</div>
+                        <div class="question-actions">
+                            <span class="mini-drill-button">📊 View supporting research</span>
+                            <span class="mini-drill-button">📄 Find this in my IEP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="power-question-new">
+                        <div class="question-text-new">"Can you show me Sarah's progress data with current frequency?"</div>
+                        <div class="question-why-new">💡 <strong>Why this works:</strong> If progress is slow, it proves your point. If they don't have data, that's also a problem.</div>
+                        <div class="question-actions">
+                            <span class="mini-drill-button">📈 See data requirements</span>
+                            <span class="mini-drill-button">📄 Find this in my IEP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="power-question-new">
+                        <div class="question-text-new">"Is the SLP trained in apraxia-specific techniques like PROMPT?"</div>
+                        <div class="question-why-new">💡 <strong>Why this works:</strong> Apraxia requires specialized training. General SLPs may not be qualified.</div>
+                        <div class="question-actions">
+                            <span class="mini-drill-button">🎓 View training requirements</span>
+                            <span class="mini-drill-button">📄 Find this in my IEP</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- MINIMIZED OTHER SERVICES -->
+                <div class="other-services-new">
+                    <div class="other-title-new">Other Services (On Track)</div>
+                    <div class="service-summary-new">
+                        <span>Occupational Therapy - 2x/week</span>
+                        <span class="status-ok-new">✅ Adequate</span>
+                    </div>
+                    <div class="service-summary-new">
+                        <span>AAC Consultation - Monthly</span>
+                        <span class="status-partial-new">⚠️ Could be more frequent</span>
+                    </div>
+                    <div class="service-drill">
+                        <span class="mini-drill-button">📄 Review these IEP sections</span>
+                        <span class="mini-drill-button">📋 See detailed analysis</span>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 32px; text-align: center;">
+                    <button class="action-button" onclick="showPage('post-meeting')" style="width: 100%;">Move to Post-Meeting Follow-up →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ASHA Reference Page -->
+        <div id="asha-reference" class="page">
+            <div class="nav-bar">
+                <button class="nav-link" onclick="showPage('results')">← Back to Meeting Prep Guide</button>
+                <div class="nav-title">Research Reference</div>
+                <div style="font-size: 12px; color: #6c757d;">Viewing: ASHA.org</div>
+            </div>
+            
+            <!-- Browser-like header -->
+            <div style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px 8px 0 0; padding: 12px 20px; margin-bottom: 0; display: flex; align-items: center; gap: 12px;">
+                <div style="display: flex; gap: 6px;">
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f57;"></div>
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e;"></div>
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: #28ca42;"></div>
+                </div>
+                <div style="flex: 1; background: white; border: 1px solid #dee2e6; border-radius: 4px; padding: 6px 12px; font-size: 12px; color: #6c757d;">
+                    🔒 asha.org/practice-portal/clinical-topics/childhood-apraxia-of-speech
+                </div>
+            </div>
+            
+            <div class="card" style="border-radius: 0 0 8px 8px; margin-top: 0; border-top: none;">
+                <div style="border-bottom: 3px solid #0066cc; padding-bottom: 20px; margin-bottom: 32px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                        <div style="background: #0066cc; color: white; padding: 8px 16px; border-radius: 6px; font-weight: bold; margin-right: 16px; font-size: 18px;">ASHA</div>
+                        <div>
+                            <div style="color: #0066cc; font-weight: 600; font-size: 14px;">American Speech-Language-Hearing Association</div>
+                            <div style="color: #6c757d; font-size: 12px;">Practice Portal | Evidence-Based Resources</div>
+                        </div>
+                    </div>
+                    <h1 style="color: #0066cc; margin: 0; font-size: 28px; font-weight: 700;">Treatment Intensity for Childhood Apraxia of Speech</h1>
+                    <div style="display: flex; gap: 16px; margin-top: 12px; font-size: 13px; color: #6c757d;">
+                        <span>📅 Updated March 2024</span>
+                        <span>🔬 Evidence Level: Strong</span>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(90deg, #e3f2fd 0%, #ffffff 100%); border-left: 4px solid #0066cc; padding: 20px; margin-bottom: 24px; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: #0066cc; margin: 0 0 8px 0; font-size: 16px;">🎯 Clinical Bottom Line</h3>
+                    <p style="margin: 0; font-weight: 500;">Children with Childhood Apraxia of Speech (CAS) require frequent, intensive therapy sessions—typically <strong>3-5 times per week</strong> for optimal motor learning and speech development.</p>
+                </div>
+                
+                <div style="background: #ffffff; border: 2px solid #e9ecef; border-radius: 12px; padding: 24px; margin: 32px 0;">
+                    <h4 style="margin: 0 0 20px 0; color: #212529; text-align: center; font-size: 18px;">📊 Treatment Frequency Outcomes</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; text-align: center;">
+                        <div style="padding: 16px; border-radius: 8px; background: #ffeaa7; border: 2px solid #fdcb6e;">
+                            <div style="font-size: 28px; font-weight: bold; color: #d63031; margin-bottom: 8px;">2x/week</div>
+                            <div style="font-size: 14px; color: #2d3436; font-weight: 600;">Limited Progress</div>
+                            <div style="font-size: 12px; color: #636e72; margin-top: 4px;">15% avg improvement</div>
+                            <div style="font-size: 11px; color: #636e72; margin-top: 8px;">❌ Insufficient for CAS</div>
+                        </div>
+                        <div style="padding: 16px; border-radius: 8px; background: #fab1a0; border: 2px solid #e17055;">
+                            <div style="font-size: 28px; font-weight: bold; color: #e17055; margin-bottom: 8px;">3x/week</div>
+                            <div style="font-size: 14px; color: #2d3436; font-weight: 600;">Moderate Progress</div>
+                            <div style="font-size: 12px; color: #636e72; margin-top: 4px;">35% avg improvement</div>
+                            <div style="font-size: 11px; color: #636e72; margin-top: 8px;">⚠️ Better but not optimal</div>
+                        </div>
+                        <div style="padding: 16px; border-radius: 8px; background: #a7f3d0; border: 2px solid #10b981;">
+                            <div style="font-size: 28px; font-weight: bold; color: #059669; margin-bottom: 8px;">4-5x/week</div>
+                            <div style="font-size: 14px; color: #2d3436; font-weight: 600;">Optimal Progress</div>
+                            <div style="font-size: 12px; color: #636e72; margin-top: 4px;">65% avg improvement</div>
+                            <div style="font-size: 11px; color: #636e72; margin-top: 8px;">✅ Evidence-based standard</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 40px; text-align: center; padding-top: 24px; border-top: 2px solid #f3f4f6;">
+                    <button class="action-button" onclick="showPage('results')" style="width: 100%; font-size: 16px;">← Return to Meeting Prep Guide</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- POST MEETING FOLLOW-UP -->
+        <div id="post-meeting" class="page">
+            <div class="nav-bar">
+                <button class="nav-link" onclick="showPage('results')">← Back</button>
+                <div class="nav-title">Post-Meeting Follow-Up</div>
+                <button class="nav-link" onclick="showPage('homepage')">Back to Homepage</button>
+            </div>
+            
+            <div class="card">
+                <div class="highlight-box">
+                    <h3>Based on the output of the meeting</h3>
+                    <p>Here's what to do next</p>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="section-icon">✅</span>
+                        Key Next Steps
+                    </div>
+                    <div class="list-item">
+                        <strong>Review final IEP document</strong> - You should receive this within 10 days
+                    </div>
+                    <div class="list-item">
+                        <strong>Schedule follow-up meeting</strong> - If any concerns weren't fully addressed
+                    </div>
+                    <div class="list-item">
+                        <strong>Communicate with teachers</strong> - Share key changes with classroom staff
+                    </div>
+                    <div class="list-item">
+                        <strong>Set calendar reminders</strong> - For quarterly progress reviews
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="section-icon">🔄</span>
+                        Revised IEP Assessment
+                    </div>
+                    <div class="list-item important">
+                        <strong>Upload your revised IEP</strong> when you receive it to track changes and ensure all agreements were documented correctly.
+                    </div>
+                    <button class="action-button" onclick="showPage('document-analysis')" style="width: 100%; margin-top: 16px;">Upload Revised IEP</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- DOCUMENT ERROR DETECTION PAGE - The WOW moment! -->
+        <div id="document-analysis" class="page">
+            <div class="nav-bar">
+                <button class="nav-link" onclick="showPage('post-meeting')">← Back</button>
+                <div class="nav-title">Document Analysis Complete</div>
+                <button class="nav-link" onclick="showPage('homepage')">Back to Homepage</button>
+            </div>
+            
+            <div class="card">
+                <div class="highlight-box">
+                    <h3>✅ Revised IEP Analysis</h3>
+                    <p>We've compared your revised IEP against your meeting notes and previous document</p>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="section-icon">✅</span>
+                        Items Confirmed Correct
+                    </div>
+                    <div class="list-item">
+                        <strong>Annual Review Date:</strong> April 15, 2025 ✓
+                    </div>
+                    <div class="list-item">
+                        <strong>Occupational Therapy:</strong> 2 sessions per week, 30 minutes each ✓
+                    </div>
+                    <div class="list-item">
+                        <strong>AAC Consultation:</strong> Monthly consultation with specialist ✓
+                    </div>
+                    <div class="list-item">
+                        <strong>Classroom Placement:</strong> General education with support ✓
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="section-icon">⚠️</span>
+                        Potential Issues Detected
+                    </div>
+                    <div style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 8px; padding: 20px; margin-bottom: 16px;">
+                        <div style="display: flex; align-items: flex-start; gap: 12px;">
+                            <span style="font-size: 24px;">⚠️</span>
+                            <div>
+                                <h4 style="color: #856404; margin: 0 0 8px 0;">Speech-Language Therapy Discrepancy</h4>
+                                <p style="margin: 0 0 8px 0; color: #856404;"><strong>Issue:</strong> This IEP states Sarah will receive 20 hours of speech therapy per week, whereas the meeting agreement was 2 hours per week.</p>
+                                <p style="margin: 0; color: #856404; font-size: 14px;"><strong>Recommendation:</strong> This is an extraordinary amount and likely a typo, but we recommend you touch base with the school to clarify this discrepancy.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="color: #198754; font-weight: 500; padding: 12px; background: #f8f9fa; border-radius: 6px; border-left: 4px solid #198754;">
+                        ✅ No other errors detected
+                    </div>
+                </div>
+                
+                <div style="margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <button class="secondary-button" onclick="showPage('post-meeting')">← Back to Post-Meeting</button>
+                    <button class="action-button" onclick="showPage('homepage')">Complete Analysis</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+        
+        // File upload handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const iepFile = document.getElementById('iep-file');
+            if (iepFile) {
+                iepFile.addEventListener('change', function() {
+                    if (this.files.length > 0) {
+                        const uploadArea = this.parentElement;
+                        uploadArea.innerHTML = `
+                            <div class="upload-icon">✓</div>
+                            <div class="upload-text">IEP Document Uploaded</div>
+                            <div class="upload-subtext">${this.files[0].name}</div>
+                        `;
+                        uploadArea.style.borderColor = '#6c757d';
+                        uploadArea.style.background = '#f8f9fa';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

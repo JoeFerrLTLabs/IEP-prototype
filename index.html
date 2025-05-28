@@ -33,6 +33,64 @@
             display: block;
         }
         
+        /* Intro Page Styles */
+        .intro-page {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 40px;
+            text-align: left;
+            max-width: 700px;
+            margin: 40px auto;
+        }
+        
+        .intro-text {
+            margin-bottom: 32px;
+        }
+        
+        .intro-text p {
+            margin-bottom: 16px;
+        }
+        
+        .intro-highlight {
+            font-style: italic;
+        }
+        
+        .intro-bullets {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        
+        .intro-bullets li {
+            margin-bottom: 12px;
+        }
+        
+        .intro-bullets ul {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+        
+        .intro-bullets ul li {
+            margin-bottom: 8px;
+        }
+        
+        .continue-button {
+            background: #212529;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .continue-button:hover {
+            background: #495057;
+            transform: translateY(-1px);
+        }
+        
         .header {
             background: white;
             padding: 32px;
@@ -78,9 +136,6 @@
             padding: 8px 16px;
             border-radius: 4px;
             transition: all 0.2s;
-            background: none;
-            border: none;
-            cursor: pointer;
         }
         
         .nav-link:hover {
@@ -169,37 +224,31 @@
             font-size: 14px;
         }
         
-        .form-group {
+        .question-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 24px;
             margin-bottom: 24px;
         }
         
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
+        .question-box h3 {
+            margin-bottom: 16px;
             color: #212529;
         }
         
-        .form-input {
+        .question-box p {
+            color: #6c757d;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+        
+        .question-input {
             width: 100%;
             padding: 12px;
             border: 1px solid #dee2e6;
             border-radius: 4px;
             font-size: 16px;
-        }
-        
-        .list-item {
-            background: #f8f9fa;
-            padding: 16px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            border-left: 4px solid #dee2e6;
-        }
-        
-        .list-item.important {
-            border-left-color: #6c757d;
-            background: #ffffff;
-            border: 1px solid #dee2e6;
         }
         
         .section {
@@ -248,6 +297,20 @@
             font-weight: 600;
         }
         
+        .list-item {
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid #dee2e6;
+        }
+        
+        .list-item.important {
+            border-left-color: #6c757d;
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+        }
+        
         .checkbox-item {
             display: flex;
             align-items: flex-start;
@@ -257,6 +320,20 @@
         .checkbox-item input {
             margin-right: 12px;
             margin-top: 4px;
+        }
+        
+        .back-button {
+            background: none;
+            border: none;
+            color: #6c757d;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 8px 0;
+            margin-bottom: 16px;
+        }
+        
+        .back-button:hover {
+            color: #212529;
         }
         
         .highlight-box {
@@ -271,49 +348,28 @@
             margin-bottom: 12px;
         }
         
-        .reference-link {
-            color: #495057;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            padding: 6px 8px;
-            background: #f8f9fa;
-            border-radius: 4px;
-            border: 1px solid #dee2e6;
-            display: inline-block;
-            transition: all 0.2s;
-            cursor: pointer;
+        .form-group {
+            margin-bottom: 24px;
         }
         
-        .reference-link:hover {
-            background: #e9ecef;
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
             color: #212529;
         }
         
-        .reference-link.disabled {
-            opacity: 0.6;
-            cursor: default;
-            background: #f1f3f4;
-            color: #6c757d;
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            font-size: 16px;
         }
         
-        .tell-more-link {
-            color: #6c757d;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 500;
-            padding: 4px 6px;
-            background: #f8f9fa;
-            border-radius: 3px;
-            display: inline-block;
-            transition: all 0.2s;
-        }
-        
-        .tell-more-link.disabled {
-            opacity: 0.6;
-            cursor: default;
-            background: #f1f3f4;
-            color: #6c757d;
+        .form-input:focus {
+            outline: none;
+            border-color: #6c757d;
         }
         
         .service-item {
@@ -358,227 +414,289 @@
             color: #dc3545;
         }
         
-        .drill-down-button {
-            background: #f8f9fa;
+        .needs-indicator.partial {
+            background: #fff9c4;
+            color: #856404;
+        }
+        
+        .reference-link {
             color: #495057;
-            border: 1px solid #dee2e6;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 500;
-            cursor: default;
-            display: inline-block;
-            margin-top: 8px;
-            opacity: 0.8;
-        }
-        
-        .question-actions {
-            display: flex;
-            gap: 8px;
-            margin-top: 8px;
-        }
-        
-        .mini-drill-button {
-            background: #f8f9fa;
-            color: #6c757d;
-            border: 1px solid #e9ecef;
-            padding: 4px 8px;
-            border-radius: 3px;
-            font-size: 10px;
-            font-weight: 500;
-            cursor: default;
-            opacity: 0.8;
-        }
-        
-        .service-drill {
-            margin-top: 8px;
-        }
-        
-        .alert-box-new {
-            background: #f8f9fa;
-            border: 2px solid #dc3545;
-            color: #212529;
-            padding: 16px 20px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        
-        .alert-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex: 1;
-        }
-        
-        .alert-icon-new {
-            font-size: 20px;
-            color: #dc3545;
-            flex-shrink: 0;
-        }
-        
-        .alert-text {
-            flex: 1;
-        }
-        
-        .alert-title-new {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 2px;
-            color: #212529;
-        }
-        
-        .alert-subtitle-new {
+            text-decoration: none;
             font-size: 13px;
-            color: #6c757d;
-            margin: 0;
-        }
-        
-        .alert-stats-new {
-            display: flex;
-            gap: 12px;
-            flex-shrink: 0;
-        }
-        
-        .stat-box-new {
-            background: white;
-            padding: 8px 12px;
+            font-weight: 500;
+            padding: 6px 8px;
+            background: #f8f9fa;
             border-radius: 4px;
             border: 1px solid #dee2e6;
-            text-align: center;
-            min-width: 60px;
+            display: inline-block;
+            transition: all 0.2s;
         }
         
-        .stat-number-new {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 2px;
+        .reference-link:hover {
+            background: #e9ecef;
             color: #212529;
         }
         
-        .stat-label-new {
-            font-size: 10px;
+        .tell-more-link {
             color: #6c757d;
-            line-height: 1.2;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 6px;
+            background: #f8f9fa;
+            border-radius: 3px;
+            display: inline-block;
+            transition: all 0.2s;
         }
         
-        .evidence-box-new {
-            background: #f8f9fa;
-            border: 1px solid #0066cc;
-            border-left: 4px solid #0066cc;
-            color: #212529;
-            padding: 20px;
-            border-radius: 6px;
+        .tell-more-link:hover {
+            background: #e9ecef;
+            color: #495057;
+        }
+        
+        /* Profile page styles */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 32px;
+            align-items: start;
+        }
+        
+        .profile-left {
+            text-align: center;
+        }
+        
+        .profile-right {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #dee2e6;
             margin-bottom: 24px;
-        }
-        
-        .evidence-title-new {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            color: #0066cc;
-        }
-        
-        .evidence-icon-new {
-            margin-right: 8px;
-            font-size: 16px;
-        }
-        
-        .action-section-new {
             background: #f8f9fa;
-            padding: 20px;
-            border-radius: 6px;
-            border-left: 4px solid #28a745;
-        }
-        
-        .action-title-new {
-            font-size: 18px;
-            font-weight: 600;
-            color: #28a745;
-            margin-bottom: 16px;
             display: flex;
             align-items: center;
+            justify-content: center;
+            font-size: 48px;
         }
         
-        .action-icon-new {
-            margin-right: 8px;
-            font-size: 18px;
+        .profile-item {
+            margin-bottom: 20px;
         }
         
-        .power-question-new {
-            background: white;
-            padding: 16px;
-            border-radius: 6px;
-            margin-bottom: 12px;
-            border: 1px solid #dee2e6;
-            border-left: 3px solid #6c757d;
-        }
-        
-        .question-text-new {
-            font-size: 14px;
-            font-weight: 600;
-            color: #212529;
+        .profile-label {
+            font-size: 12px;
+            color: #6c757d;
+            font-weight: 500;
+            text-transform: uppercase;
             margin-bottom: 6px;
         }
         
-        .question-why-new {
-            font-size: 12px;
-            color: #6c757d;
-            background: #f8f9fa;
-            padding: 8px;
-            border-radius: 4px;
-            margin-top: 8px;
+        .profile-value {
+            color: #212529;
+            font-weight: 500;
+            font-size: 16px;
         }
         
-        .other-services-new {
+        .document-section {
             background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .document-item {
+            background: white;
             padding: 16px;
             border-radius: 6px;
-            margin-top: 24px;
+            margin-bottom: 12px;
             border: 1px solid #dee2e6;
         }
         
-        .other-title-new {
-            font-size: 14px;
-            color: #6c757d;
-            margin-bottom: 12px;
+        .document-name {
             font-weight: 500;
+            color: #212529;
+            margin-bottom: 4px;
         }
         
-        .service-summary-new {
+        .document-meta {
+            color: #6c757d;
+            font-size: 12px;
+        }
+        
+        .cta-button {
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background: #3367d6;
+        }
+        
+        .coming-soon {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            text-align: center;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            display: none;
+        }
+        
+        /* Progress checklist styles */
+        .checklist-section {
+            margin-top: 24px;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid #dee2e6;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            margin-right: 12px;
+            margin-top: 4px;
+        }
+        
+        .checklist-text {
+            flex: 1;
+        }
+        
+        .auto-reminder {
+            background: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1565c0;
+        }
+        
+        /* Comparison analysis styles */
+        .comparison-card {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        
+        .comparison-header {
+            background: #f8f9fa;
+            padding: 16px;
+            border-bottom: 1px solid #dee2e6;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 8px 12px;
-            background: white;
-            border-radius: 4px;
-            margin-bottom: 6px;
+        }
+        
+        .comparison-title {
+            font-weight: 600;
+            color: #212529;
+        }
+        
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
             font-size: 12px;
-            border: 1px solid #f1f3f4;
+            font-weight: 500;
         }
         
-        .status-ok-new {
-            color: #28a745;
-            font-weight: 500;
-            font-size: 11px;
+        .status-correct {
+            background: #d4edda;
+            color: #155724;
         }
         
-        .status-partial-new {
-            color: #ffc107;
+        .status-issue {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .comparison-content {
+            padding: 16px;
+        }
+        
+        .analysis-note {
+            background: #fff9c4;
+            border: 1px solid #ffc107;
+            border-radius: 6px;
+            padding: 12px;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+        
+        .complete-analysis-button {
+            background: #212529;
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 8px;
+            font-size: 16px;
             font-weight: 500;
-            font-size: 11px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 16px;
+        }
+        
+        .complete-analysis-button:hover {
+            background: #495057;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        
-        <!-- HOMEPAGE -->
-        <div id="homepage" class="page active">
+        <!-- Intro Page -->
+        <div id="intro-page" class="page active">
+            <div class="intro-page">
+                <div class="intro-text">
+                    <p><span class="intro-highlight">You are about to experience a clickable prototype for an imaginary child named Sarah. This is not a live product. A few things to keep in mind:</span></p>
+                    
+                    <ul class="intro-bullets">
+                        <li>Please read and think out loud as you go.</li>
+                        <li>As a prototype, some features may work, others will not. If you click on something that doesn't work, it's okay- just let me know what you would expect to happen if this was a functioning product.</li>
+                        <li>Imagine Sarah is your child
+                            <ul>
+                                <li>She is 5 years old and about to enter Kindergarten</li>
+                                <li>She has been diagnosed with Autism Spectrum Disorder and Speech Apraxia</li>
+                                <li>You have an IEP meeting coming up and the school has forwarded you a DRAFT copy of the document</li>
+                                <li>Another parent told you about IEP Meeting Prep, a tool for helping parents through the IEP process</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <button class="continue-button" onclick="showPage('homepage')">Continue to Homepage</button>
+            </div>
+        </div>
+
+        <!-- Homepage -->
+        <div id="homepage" class="page">
             <div class="header">
                 <h1>IEP Meeting Prep</h1>
                 <p>Prepare for successful IEP meetings with confidence</p>
@@ -593,10 +711,10 @@
             </div>
         </div>
 
-        <!-- CREATE ACCOUNT -->
+        <!-- Create Account -->
         <div id="create-account" class="page">
             <div class="nav-bar">
-                <button class="nav-link" onclick="showPage('homepage')">← Back to Homepage</button>
+                <button class="nav-link back-button" onclick="showPage('homepage')">← Back to Homepage</button>
                 <div class="nav-title">Create Account</div>
                 <div></div>
             </div>
@@ -635,36 +753,80 @@
                 
                 <div class="form-group">
                     <label class="form-label">Additional Documents</label>
-                    <div class="upload-area">
+                    <div class="upload-area" onclick="document.getElementById('additional-docs').click()">
                         <div class="upload-icon">📄</div>
                         <div class="upload-text">Upload evaluation reports, previous IEPs, etc.</div>
                         <div class="upload-subtext">Drag & drop PDFs or click to browse</div>
+                        <input type="file" id="additional-docs" style="display: none;" accept=".pdf" multiple>
+                    </div>
+                </div>
+                
+                <button class="action-button" onclick="showPage('profile')" style="width: 100%;">Update Profile</button>
+            </div>
+        </div>
+
+        <!-- Profile Page - COMPLETELY REWRITTEN -->
+        <div id="profile" class="page">
+            <div class="nav-bar">
+                <button class="nav-link back-button" onclick="showPage('create-account')">← Back to Create Account</button>
+                <div class="nav-title">Sarah's IEP Profile</div>
+                <div></div>
+            </div>
+            
+            <div class="card">
+                <div class="profile-grid">
+                    <div class="profile-left">
+                        <div class="profile-photo">👧</div>
                     </div>
                     
-                    <div style="margin-top: 16px;">
-                        <h4 style="margin-bottom: 12px; color: #6c757d; font-size: 14px;">UPLOADED DOCUMENTS</h4>
-                        <div class="list-item" style="font-size: 14px; padding: 12px;">
-                            <strong>Speech Language Evaluation - March 2024</strong><br>
-                            <span style="color: #6c757d;">Dr. Jennifer Kim, SLP</span>
+                    <div class="profile-right">
+                        <div class="profile-item">
+                            <div class="profile-label" style="font-weight: 600; font-size: 16px;">Sarah's IEP Profile</div>
+                            <div class="profile-label" style="margin-top: 12px;">Age & Grade</div>
+                            <div class="profile-value">5 years old<br>Grade: Kindergarten</div>
                         </div>
-                        <div class="list-item" style="font-size: 14px; padding: 12px;">
-                            <strong>Psychological Assessment - February 2024</strong><br>
-                            <span style="color: #6c757d;">School District Evaluation</span>
+                        
+                        <div class="profile-item">
+                            <div class="profile-label">Diagnoses</div>
+                            <div class="profile-value">Autism Spectrum Disorder (ASD)<br>Speech Apraxia</div>
                         </div>
-                        <div style="color: #6c757d; font-size: 14px; padding: 8px 12px; font-style: italic;">
-                            Additional documents will appear here after upload
+                        
+                        <div class="document-section">
+                            <div class="profile-label">Uploaded Documents</div>
+                            <div class="document-item">
+                                <div class="document-name">Dr. Smith Assessment - February 2024</div>
+                                <div class="document-meta">School District Assessment</div>
+                            </div>
+                            <div class="document-item">
+                                <div class="document-name">Speech Language Evaluation - March 2024</div>
+                                <div class="document-meta">Dr. Jennifer Kim, SLP</div>
+                            </div>
+                            <div class="document-item">
+                                <div class="document-name">Sarah's IEP - Kindergarten - August 15, 2024</div>
+                                <div class="document-meta">Current IEP</div>
+                            </div>
+                            <div class="document-item">
+                                <div class="document-name">Sarah's Current Goals</div>
+                                <div class="document-meta">
+                                    <span style="color: #4285f4; font-size: 14px; font-weight: 500;">
+                                        📋 Click here to see Sarah's active IEP goals
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <button class="action-button" onclick="showPage('homepage')" style="width: 100%;">Update Profile</button>
+                <div style="margin-top: 32px; text-align: center;">
+                    <button class="cta-button" onclick="showPage('homepage')">Back to Main Menu</button>
+                </div>
             </div>
         </div>
 
-        <!-- UPLOAD IEP -->
+        <!-- Upload IEP -->
         <div id="upload-iep" class="page">
             <div class="nav-bar">
-                <button class="nav-link" onclick="showPage('homepage')">← Back to Homepage</button>
+                <button class="nav-link back-button" onclick="showPage('homepage')">← Back to Homepage</button>
                 <div class="nav-title">Upload IEP</div>
                 <div></div>
             </div>
@@ -682,123 +844,161 @@
                 <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #dee2e6;">
                     <h3 style="margin-bottom: 16px; color: #6c757d; font-size: 16px;">Past IEP Submissions</h3>
                     <div class="list-item">
-                        <strong>Sarah's IEP - Grade 3</strong><br>
-                        <span style="color: #6c757d; font-size: 14px;">Uploaded March 15, 2024</span>
+                        <strong>Sarah's IEP - Kindergarten</strong><br>
+                        <span style="color: #6c757d; font-size: 14px;">uploaded August 15, 2024</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ASK QUESTION -->
+        <!-- Ask Question -->
         <div id="ask-question" class="page">
             <div class="nav-bar">
-                <button class="nav-link" onclick="showPage('homepage')">← Back to Homepage</button>
+                <button class="nav-link back-button" onclick="showPage('homepage')">← Back to Homepage</button>
                 <div class="nav-title">Ask a Question</div>
                 <div></div>
             </div>
             
             <div class="card">
-                <h3 style="margin-bottom: 16px;">What would you like to know?</h3>
-                <p style="color: #6c757d; margin-bottom: 16px;">This feature will connect you with IEP experts (coming soon)</p>
-                <textarea style="width: 100%; padding: 12px; border: 1px solid #dee2e6; border-radius: 4px; font-size: 16px; margin-bottom: 16px;" rows="4" placeholder="Type your question here..."></textarea>
-                <button class="secondary-button">Submit Question</button>
+                <div class="question-box">
+                    <h3>What would you like to know?</h3>
+                    <p style="padding: 16px; border-radius: 6px; margin: 16px 0; font-style: normal;">
+                        <strong>No time to hunt for information in that huge IEP document?<br>
+                        Ask me a question and I'll scan your IEP for the answer!</strong>
+                    </p>
+                    <textarea class="question-input" rows="4" placeholder="Type your question here..."></textarea>
+                </div>
+                
+                <button class="secondary-button" onclick="showComingSoon()">Submit Question</button>
             </div>
         </div>
 
-        <!-- RESULTS - New Wow Moment Design -->
+        <!-- Results Page -->
         <div id="results" class="page">
             <div class="nav-bar">
-                <button class="nav-link" onclick="showPage('upload-iep')">← Back</button>
+                <button class="nav-link back-button" onclick="showPage('upload-iep')">← Back</button>
                 <div class="nav-title">Your Meeting Prep Guide</div>
                 <div></div>
             </div>
             
             <div class="card">
-                <!-- THE WOW MOMENT - Lead with the problem -->
-                <div class="alert-box-new">
-                    <div class="alert-left">
-                        <div class="alert-icon-new">🚨</div>
-                        <div class="alert-text">
-                            <div class="alert-title-new">Service Gap Detected</div>
-                            <div class="alert-subtitle-new">Sarah may not be receiving adequate speech therapy</div>
-                            <div class="drill-down-button">📄 Take me to this section of the IEP</div>
+                <!-- Assessment Header -->
+                <h2 style="color: #212529; font-weight: bold; margin-bottom: 24px;">Assessment of Sarah's Newest IEP:</h2>
+                
+                <!-- Service Gap Detected Alert -->
+                <div style="border: 2px solid #dc3545; background: #f8d7da; border-radius: 8px; padding: 20px; margin-bottom: 24px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <div style="display: flex; align-items: center;">
+                            <span style="color: #dc3545; font-size: 20px; margin-right: 12px;">🚨</span>
+                            <div>
+                                <div style="font-weight: 600; color: #721c24; margin-bottom: 4px;">Service Gap Detected</div>
+                                <div style="color: #721c24; font-size: 14px;">Sarah may not be receiving adequate speech therapy</div>
+                                <div style="color: #721c24; font-size: 12px; margin-top: 4px;">📍 Take me to this section of the IEP</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="alert-stats-new">
-                        <div class="stat-box-new">
-                            <div class="stat-number-new">2x</div>
-                            <div class="stat-label-new">Current weekly</div>
-                        </div>
-                        <div class="stat-box-new">
-                            <div class="stat-number-new">4-5x</div>
-                            <div class="stat-label-new">Recommended</div>
+                        <div style="display: flex; gap: 32px; align-items: center;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 24px; font-weight: bold; color: #721c24;">2x</div>
+                                <div style="font-size: 12px; color: #721c24;">Current weekly</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 24px; font-weight: bold; color: #721c24;">4-5x</div>
+                                <div style="font-size: 12px; color: #721c24;">Recommended</div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- EVIDENCE - Why this matters -->
-                <div class="evidence-box-new">
-                    <div class="evidence-title-new">
-                        <span class="evidence-icon-new">🔬</span>
-                        Why This Matters
+                <!-- Why This Matters Section -->
+                <div style="border: 2px solid #0066cc; background: #e3f2fd; border-radius: 8px; padding: 20px; margin-bottom: 24px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                        <span style="color: #0066cc; font-size: 18px; margin-right: 8px;">💡</span>
+                        <h3 style="color: #0d47a1; margin: 0;">Why This Matters</h3>
                     </div>
-                    <p>Children with Childhood Apraxia of Speech need intensive, frequent therapy (4-5x/week) for optimal progress. Research shows 2x/week therapy yields only 15% improvement vs 65% with proper frequency.</p>
-                    <button class="reference-link" onclick="showPage('asha-reference')" style="margin-top: 12px;">📖 View ASHA Research Evidence</button>
+                    <p style="color: #0d47a1; margin-bottom: 16px; line-height: 1.5;">
+                        Children with Childhood Apraxia of Speech need intensive, frequent therapy (4-5x/week) for optimal progress. Research shows 2x/week therapy yields only 15% improvement vs 65% with proper frequency.
+                    </p>
+                    <div style="display: flex; align-items: center;">
+                        <span style="color: #0066cc; font-size: 14px; margin-right: 4px;">📖</span>
+                        <button onclick="showPage('asha-reference')" style="background: none; border: none; color: #0066cc; text-decoration: none; font-size: 14px; font-weight: 500; cursor: pointer; padding: 0;">View ASHA Research Evidence</button>
+                    </div>
                 </div>
                 
-                <!-- ACTION ITEMS - What to do about it -->
-                <div class="action-section-new">
-                    <div class="action-title-new">
-                        <span class="action-icon-new">⚡</span>
-                        Questions That Get Results
+                <!-- Questions That Get Results Section -->
+                <div style="border-left: 4px solid #28a745; background: #f8fff9; padding: 20px; margin-bottom: 24px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 16px;">
+                        <span style="color: #28a745; font-size: 18px; margin-right: 8px;">✨</span>
+                        <h3 style="color: #155724; margin: 0;">Suggested Questions For Your IEP Meeting</h3>
                     </div>
                     
-                    <div class="power-question-new">
-                        <div class="question-text-new">"What research supports 2x/week therapy for childhood apraxia?"</div>
-                        <div class="question-why-new">💡 <strong>Why this works:</strong> Forces them to justify their decision with evidence. They likely can't.</div>
-                        <div class="question-actions">
-                            <span class="mini-drill-button">📊 View supporting research</span>
-                            <span class="mini-drill-button">📄 Find this in my IEP</span>
+                    <!-- Question 1 -->
+                    <div style="background: white; border: 1px solid #dee2e6; border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+                        <div style="font-weight: 600; color: #212529; margin-bottom: 8px;">"What research supports 2x/week therapy for childhood apraxia?"</div>
+                        <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin-bottom: 12px;">
+                            <div style="color: #6c757d; font-size: 14px; margin-bottom: 8px;">💡 Why this works: Forces them to justify their decision with evidence. They likely can't.</div>
+                        </div>
+                        <div style="display: flex; gap: 16px; font-size: 12px;">
+                            <span style="color: #6c757d;">📋 View supporting research</span>
+                            <span style="color: #6c757d;">🔗 Find this in my IEP</span>
                         </div>
                     </div>
                     
-                    <div class="power-question-new">
-                        <div class="question-text-new">"Can you show me Sarah's progress data with current frequency?"</div>
-                        <div class="question-why-new">💡 <strong>Why this works:</strong> If progress is slow, it proves your point. If they don't have data, that's also a problem.</div>
-                        <div class="question-actions">
-                            <span class="mini-drill-button">📈 See data requirements</span>
-                            <span class="mini-drill-button">📄 Find this in my IEP</span>
+                    <!-- Question 2 -->
+                    <div style="background: white; border: 1px solid #dee2e6; border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+                        <div style="font-weight: 600; color: #212529; margin-bottom: 8px;">"Can you show me Sarah's progress data with current frequency?"</div>
+                        <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin-bottom: 12px;">
+                            <div style="color: #6c757d; font-size: 14px; margin-bottom: 8px;">💡 Why this works: If progress is slow, it proves your point. If they don't have data, that's also a problem.</div>
+                        </div>
+                        <div style="display: flex; gap: 16px; font-size: 12px;">
+                            <span style="color: #6c757d;">📊 See data requirements</span>
+                            <span style="color: #6c757d;">🔗 Find this in my IEP</span>
                         </div>
                     </div>
                     
-                    <div class="power-question-new">
-                        <div class="question-text-new">"Is the SLP trained in apraxia-specific techniques like PROMPT?"</div>
-                        <div class="question-why-new">💡 <strong>Why this works:</strong> Apraxia requires specialized training. General SLPs may not be qualified.</div>
-                        <div class="question-actions">
-                            <span class="mini-drill-button">🎓 View training requirements</span>
-                            <span class="mini-drill-button">📄 Find this in my IEP</span>
+                    <!-- Question 3 -->
+                    <div style="background: white; border: 1px solid #dee2e6; border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+                        <div style="font-weight: 600; color: #212529; margin-bottom: 8px;">"Is the SLP trained in apraxia-specific techniques like PROMPT?"</div>
+                        <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin-bottom: 12px;">
+                            <div style="color: #6c757d; font-size: 14px; margin-bottom: 8px;">💡 Why this works: Apraxia requires specialized training. General SLPs may not be qualified.</div>
+                        </div>
+                        <div style="display: flex; gap: 16px; font-size: 12px;">
+                            <span style="color: #6c757d;">📚 See training requirements</span>
+                            <span style="color: #6c757d;">🔗 Find this in my IEP</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- MINIMIZED OTHER SERVICES -->
-                <div class="other-services-new">
-                    <div class="other-title-new">Other Services (On Track)</div>
-                    <div class="service-summary-new">
-                        <span>Occupational Therapy - 2x/week</span>
-                        <span class="status-ok-new">✅ Adequate</span>
+                <!-- Other Services Section -->
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 24px;">
+                    <h4 style="color: #6c757d; margin-bottom: 16px; font-size: 14px;">Other Services (On Track)</h4>
+                    
+                    <div style="background: white; border: 1px solid #dee2e6; border-radius: 8px; padding: 16px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-weight: 600; color: #212529;">Occupational Therapy - 2x/week</div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <span style="color: #28a745; font-size: 16px; margin-right: 4px;">✅</span>
+                            <span style="color: #28a745; font-size: 12px; font-weight: 500;">Adequate</span>
+                        </div>
                     </div>
-                    <div class="service-summary-new">
-                        <span>AAC Consultation - Monthly</span>
-                        <span class="status-partial-new">⚠️ Could be more frequent</span>
+                    
+                    <div style="background: white; border: 1px solid #dee2e6; border-radius: 8px; padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-weight: 600; color: #212529;">AAC Consultation - Monthly</div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <span style="color: #ffc107; font-size: 16px; margin-right: 4px;">⚠️</span>
+                            <span style="color: #856404; font-size: 12px; font-weight: 500;">Could be more frequent</span>
+                        </div>
                     </div>
-                    <div class="service-drill">
-                        <span class="mini-drill-button">📄 Review these IEP sections</span>
-                        <span class="mini-drill-button">📋 See detailed analysis</span>
+                    
+                    <div style="margin-top: 12px; font-size: 12px; color: #6c757d; display: flex; gap: 16px;">
+                        <span>📋 Review these IEP sections</span>
+                        <span>📊 See detailed analysis</span>
                     </div>
                 </div>
                 
-                <div style="margin-top: 32px; text-align: center;">
+                <div style="text-align: center;">
                     <button class="action-button" onclick="showPage('post-meeting')" style="width: 100%;">Move to Post-Meeting Follow-up →</button>
                 </div>
             </div>
@@ -807,78 +1007,103 @@
         <!-- ASHA Reference Page -->
         <div id="asha-reference" class="page">
             <div class="nav-bar">
-                <button class="nav-link" onclick="showPage('results')">← Back to Meeting Prep Guide</button>
+                <button class="nav-link back-button" onclick="showPage('results')">← Back to Meeting Prep Guide</button>
                 <div class="nav-title">Research Reference</div>
-                <div style="font-size: 12px; color: #6c757d;">Viewing: ASHA.org</div>
+                <div style="color: #6c757d; font-size: 14px;">Viewing: ASHA.org</div>
             </div>
             
-            <!-- Browser-like header -->
-            <div style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px 8px 0 0; padding: 12px 20px; margin-bottom: 0; display: flex; align-items: center; gap: 12px;">
-                <div style="display: flex; gap: 6px;">
+            <!-- Mock Browser Bar -->
+            <div style="background: #f1f3f4; padding: 8px 16px; border-radius: 8px 8px 0 0; border: 1px solid #dadce0; display: flex; align-items: center; gap: 8px; margin-bottom: 0;">
+                <div style="display: flex; gap: 4px;">
                     <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f57;"></div>
                     <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e;"></div>
                     <div style="width: 12px; height: 12px; border-radius: 50%; background: #28ca42;"></div>
                 </div>
-                <div style="flex: 1; background: white; border: 1px solid #dee2e6; border-radius: 4px; padding: 6px 12px; font-size: 12px; color: #6c757d;">
+                <div style="flex: 1; background: white; padding: 6px 12px; border-radius: 4px; font-size: 14px; color: #5f6368; display: flex; align-items: center;">
                     🔒 asha.org/practice-portal/clinical-topics/childhood-apraxia-of-speech
                 </div>
             </div>
             
-            <div class="card" style="border-radius: 0 0 8px 8px; margin-top: 0; border-top: none;">
-                <div style="border-bottom: 3px solid #0066cc; padding-bottom: 20px; margin-bottom: 32px;">
+            <div class="card" style="border-radius: 0 0 8px 8px; border-top: none; margin-top: 0;">
+                <!-- ASHA Header -->
+                <div style="display: flex; align-items: center; margin-bottom: 16px;">
+                    <div style="background: #0066cc; color: white; padding: 8px 16px; border-radius: 6px; font-weight: bold; margin-right: 16px; font-size: 18px;">ASHA</div>
+                    <div>
+                        <div style="color: #0066cc; font-weight: 600; font-size: 16px;">American Speech-Language-Hearing Association</div>
+                        <div style="color: #6c757d; font-size: 14px;">Practice Portal | Evidence-Based Resources</div>
+                    </div>
+                </div>
+                
+                <h1 style="color: #0066cc; margin: 24px 0 16px 0; font-size: 32px;">Treatment Intensity for Childhood Apraxia of Speech</h1>
+                
+                <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px; color: #6c757d; font-size: 14px;">
+                    <span>📅 Updated March 2024</span>
+                    <span>👤 Evidence Level: Strong</span>
+                </div>
+                
+                <hr style="border: none; border-top: 2px solid #0066cc; margin: 24px 0;">
+                
+                <!-- Clinical Bottom Line -->
+                <div style="border-left: 4px solid #0066cc; background: #f0f7ff; padding: 20px; margin: 24px 0;">
                     <div style="display: flex; align-items: center; margin-bottom: 12px;">
-                        <div style="background: #0066cc; color: white; padding: 8px 16px; border-radius: 6px; font-weight: bold; margin-right: 16px; font-size: 18px;">ASHA</div>
-                        <div>
-                            <div style="color: #0066cc; font-weight: 600; font-size: 14px;">American Speech-Language-Hearing Association</div>
-                            <div style="color: #6c757d; font-size: 12px;">Practice Portal | Evidence-Based Resources</div>
-                        </div>
+                        <span style="font-size: 20px; margin-right: 8px;">🎯</span>
+                        <h3 style="color: #0066cc; margin: 0;">Clinical Bottom Line</h3>
                     </div>
-                    <h1 style="color: #0066cc; margin: 0; font-size: 28px; font-weight: 700;">Treatment Intensity for Childhood Apraxia of Speech</h1>
-                    <div style="display: flex; gap: 16px; margin-top: 12px; font-size: 13px; color: #6c757d;">
-                        <span>📅 Updated March 2024</span>
-                        <span>🔬 Evidence Level: Strong</span>
+                    <p style="margin: 0; font-size: 16px; line-height: 1.5;">
+                        Children with Childhood Apraxia of Speech (CAS) require frequent, intensive therapy sessions—<strong>typically 3-5 times per week</strong> for optimal motor learning and speech development.
+                    </p>
+                </div>
+                
+                <!-- Treatment Frequency Outcomes Chart -->
+                <div style="background: #f8f9fa; padding: 24px; border-radius: 12px; margin: 32px 0;">
+                    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                        <span style="font-size: 20px; margin-right: 8px;">📊</span>
+                        <h3 style="margin: 0; text-align: center;">Treatment Frequency Outcomes</h3>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; max-width: 600px; margin: 0 auto;">
+                        <div style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 12px; padding: 20px; text-align: center;">
+                            <div style="font-size: 28px; font-weight: bold; color: #dc3545; margin-bottom: 8px;">2x/week</div>
+                            <div style="font-weight: 600; margin-bottom: 8px;">Limited Progress</div>
+                            <div style="font-size: 14px; margin-bottom: 8px;">15% avg improvement</div>
+                            <div style="display: flex; align-items: center; justify-content: center; font-size: 12px; color: #dc3545;">
+                                <span style="margin-right: 4px;">❌</span>
+                                Insufficient for CAS
+                            </div>
+                        </div>
+                        
+                        <div style="background: #ffe6e6; border: 2px solid #fd7e14; border-radius: 12px; padding: 20px; text-align: center;">
+                            <div style="font-size: 28px; font-weight: bold; color: #fd7e14; margin-bottom: 8px;">3x/week</div>
+                            <div style="font-weight: 600; margin-bottom: 8px;">Moderate Progress</div>
+                            <div style="font-size: 14px; margin-bottom: 8px;">35% avg improvement</div>
+                            <div style="display: flex; align-items: center; justify-content: center; font-size: 12px; color: #fd7e14;">
+                                <span style="margin-right: 4px;">⚠️</span>
+                                Better but not optimal
+                            </div>
+                        </div>
+                        
+                        <div style="background: #d4edda; border: 2px solid #198754; border-radius: 12px; padding: 20px; text-align: center;">
+                            <div style="font-size: 28px; font-weight: bold; color: #198754; margin-bottom: 8px;">4-5x/week</div>
+                            <div style="font-weight: 600; margin-bottom: 8px;">Optimal Progress</div>
+                            <div style="font-size: 14px; margin-bottom: 8px;">65% avg improvement</div>
+                            <div style="display: flex; align-items: center; justify-content: center; font-size: 12px; color: #198754;">
+                                <span style="margin-right: 4px;">✅</span>
+                                Evidence-based standard
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div style="background: linear-gradient(90deg, #e3f2fd 0%, #ffffff 100%); border-left: 4px solid #0066cc; padding: 20px; margin-bottom: 24px; border-radius: 0 8px 8px 0;">
-                    <h3 style="color: #0066cc; margin: 0 0 8px 0; font-size: 16px;">🎯 Clinical Bottom Line</h3>
-                    <p style="margin: 0; font-weight: 500;">Children with Childhood Apraxia of Speech (CAS) require frequent, intensive therapy sessions—typically <strong>3-5 times per week</strong> for optimal motor learning and speech development.</p>
-                </div>
-                
-                <div style="background: #ffffff; border: 2px solid #e9ecef; border-radius: 12px; padding: 24px; margin: 32px 0;">
-                    <h4 style="margin: 0 0 20px 0; color: #212529; text-align: center; font-size: 18px;">📊 Treatment Frequency Outcomes</h4>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; text-align: center;">
-                        <div style="padding: 16px; border-radius: 8px; background: #ffeaa7; border: 2px solid #fdcb6e;">
-                            <div style="font-size: 28px; font-weight: bold; color: #d63031; margin-bottom: 8px;">2x/week</div>
-                            <div style="font-size: 14px; color: #2d3436; font-weight: 600;">Limited Progress</div>
-                            <div style="font-size: 12px; color: #636e72; margin-top: 4px;">15% avg improvement</div>
-                            <div style="font-size: 11px; color: #636e72; margin-top: 8px;">❌ Insufficient for CAS</div>
-                        </div>
-                        <div style="padding: 16px; border-radius: 8px; background: #fab1a0; border: 2px solid #e17055;">
-                            <div style="font-size: 28px; font-weight: bold; color: #e17055; margin-bottom: 8px;">3x/week</div>
-                            <div style="font-size: 14px; color: #2d3436; font-weight: 600;">Moderate Progress</div>
-                            <div style="font-size: 12px; color: #636e72; margin-top: 4px;">35% avg improvement</div>
-                            <div style="font-size: 11px; color: #636e72; margin-top: 8px;">⚠️ Better but not optimal</div>
-                        </div>
-                        <div style="padding: 16px; border-radius: 8px; background: #a7f3d0; border: 2px solid #10b981;">
-                            <div style="font-size: 28px; font-weight: bold; color: #059669; margin-bottom: 8px;">4-5x/week</div>
-                            <div style="font-size: 14px; color: #2d3436; font-weight: 600;">Optimal Progress</div>
-                            <div style="font-size: 12px; color: #636e72; margin-top: 4px;">65% avg improvement</div>
-                            <div style="font-size: 11px; color: #636e72; margin-top: 8px;">✅ Evidence-based standard</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 40px; text-align: center; padding-top: 24px; border-top: 2px solid #f3f4f6;">
-                    <button class="action-button" onclick="showPage('results')" style="width: 100%; font-size: 16px;">← Return to Meeting Prep Guide</button>
+                <div style="margin-top: 32px; text-align: center;">
+                    <button class="action-button" onclick="showPage('results')" style="background: #212529; padding: 16px 32px;">← Return to Meeting Prep Guide</button>
                 </div>
             </div>
         </div>
 
-        <!-- POST MEETING FOLLOW-UP -->
+        <!-- Post-Meeting Follow-Up -->
         <div id="post-meeting" class="page">
             <div class="nav-bar">
-                <button class="nav-link" onclick="showPage('results')">← Back</button>
+                <button class="nav-link back-button" onclick="showPage('results')">← Back</button>
                 <div class="nav-title">Post-Meeting Follow-Up</div>
                 <button class="nav-link" onclick="showPage('homepage')">Back to Homepage</button>
             </div>
@@ -889,50 +1114,144 @@
                     <p>Here's what to do next</p>
                 </div>
                 
+                <!-- Progress Checklist Section -->
                 <div class="section">
                     <div class="section-title">
                         <span class="section-icon">✅</span>
                         Key Next Steps
                     </div>
-                    <div class="list-item">
-                        <strong>Review final IEP document</strong> - You should receive this within 10 days
-                    </div>
-                    <div class="list-item">
-                        <strong>Schedule follow-up meeting</strong> - If any concerns weren't fully addressed
-                    </div>
-                    <div class="list-item">
-                        <strong>Communicate with teachers</strong> - Share key changes with classroom staff
-                    </div>
-                    <div class="list-item">
-                        <strong>Set calendar reminders</strong> - For quarterly progress reviews
+                    <div class="checklist-section">
+                        <div class="checklist-item">
+                            <input type="checkbox">
+                            <div class="checklist-text">
+                                <strong>Review final IEP document</strong> - You should receive this within 10 days
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox">
+                            <div class="checklist-text">
+                                <strong>Schedule follow-up meeting</strong> - If any concerns weren't fully addressed
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox">
+                            <div class="checklist-text">
+                                <strong>Communicate with teachers</strong> - Share key changes with classroom staff
+                            </div>
+                        </div>
+                        <div class="checklist-item auto-reminder">
+                            <input type="checkbox">
+                            <div class="checklist-text">
+                                <strong>Set calendar reminders</strong> - For quarterly progress reviews
+                                <div style="font-size: 12px; margin-top: 4px;">
+                                    <span style="color: #4285f4; text-decoration: underline; cursor: pointer;">Set my reminders automatically</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
+                <!-- Upload Revised IEP Section -->
                 <div class="section">
                     <div class="section-title">
                         <span class="section-icon">🔄</span>
-                        Revised IEP Assessment
+                        Review Revised IEP
                     </div>
                     <div class="list-item important">
                         <strong>Upload your revised IEP</strong> when you receive it to track changes and ensure all agreements were documented correctly.
                     </div>
-                    <button class="action-button" onclick="showPage('document-analysis')" style="width: 100%; margin-top: 16px;">Upload Revised IEP</button>
+                    
+                    <!-- Show both documents -->
+                    <div style="margin-top: 16px;">
+                        <h4 style="margin-bottom: 12px; color: #6c757d; font-size: 14px;">PAST IEP SUBMISSIONS</h4>
+                        <div class="list-item">
+                            <strong>Sarah's DRAFT IEP - Kindergarten</strong><br>
+                            <span style="color: #6c757d; font-size: 14px;">uploaded May 10, 2025</span>
+                        </div>
+                        <div class="list-item">
+                            <strong>Sarah's IEP - Kindergarten</strong><br>
+                            <span style="color: #6c757d; font-size: 14px;">uploaded August 15, 2024</span>
+                        </div>
+                    </div>
+                    
+                    <button class="action-button" onclick="showPage('review-revised-iep')" style="width: 100%; margin-top: 16px;">Upload My Revised IEP</button>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="section-icon">❓</span>
+                        Continue Advocacy
+                    </div>
+                    <div class="list-item">
+                        <strong>Monthly Check-ins:</strong> How to stay engaged with your child's progress
+                    </div>
+                    <div class="list-item">
+                        <strong>Know Your Rights:</strong> When and how to request additional meetings
+                    </div>
+                    <div class="list-item">
+                        <strong>Build Relationships:</strong> Maintaining positive connections with the IEP team
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- DOCUMENT ERROR DETECTION PAGE - The WOW moment! -->
-        <div id="document-analysis" class="page">
+        <!-- Review Revised IEP (Upload Screen) -->
+        <div id="review-revised-iep" class="page">
             <div class="nav-bar">
-                <button class="nav-link" onclick="showPage('post-meeting')">← Back</button>
-                <div class="nav-title">Document Analysis Complete</div>
-                <button class="nav-link" onclick="showPage('homepage')">Back to Homepage</button>
+                <button class="nav-link back-button" onclick="showPage('post-meeting')">← Back to Post-Meeting</button>
+                <div class="nav-title">Upload IEP</div>
+                <div></div>
             </div>
             
             <div class="card">
-                <div class="highlight-box">
-                    <h3>✅ Revised IEP Analysis</h3>
-                    <p>We've compared your revised IEP against your meeting notes and previous document</p>
+                <div style="display: flex; align-items: center; margin-bottom: 24px;">
+                    <span style="background: #6c757d; color: white; padding: 8px; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 16px;">🔄</span>
+                    <h2 style="margin: 0; color: #212529;">Review Revised IEP</h2>
+                </div>
+                
+                <div style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; margin-bottom: 24px;">
+                    <p style="margin-bottom: 16px; font-size: 16px; line-height: 1.5;">
+                        <strong>Upload your revised IEP</strong> when you receive it to track changes and ensure all agreements were documented correctly.
+                    </p>
+                </div>
+                
+                <div class="upload-area" onclick="document.getElementById('revised-iep-file').click()">
+                    <div class="upload-icon">📄</div>
+                    <div class="upload-text">Upload your IEP document</div>
+                    <div class="upload-subtext">Drag & drop PDF or click to browse</div>
+                    <input type="file" id="revised-iep-file" style="display: none;" accept=".pdf">
+                </div>
+                
+                <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #dee2e6;">
+                    <h4 style="margin-bottom: 16px; color: #6c757d; font-size: 14px;">PAST IEP SUBMISSIONS</h4>
+                    
+                    <div class="list-item">
+                        <strong>Sarah's DRAFT IEP - Kindergarten</strong><br>
+                        <span style="color: #6c757d; font-size: 14px;">uploaded May 10, 2025</span>
+                    </div>
+                    
+                    <div class="list-item">
+                        <strong>Sarah's IEP - Kindergarten</strong><br>
+                        <span style="color: #6c757d; font-size: 14px;">uploaded August 15, 2024</span>
+                    </div>
+                </div>
+                
+                <button class="action-button" onclick="showPage('revised-analysis')" style="width: 100%; margin-top: 24px;">Upload My Revised IEP</button>
+            </div>
+        </div>
+
+        <!-- Revised IEP Analysis Page -->
+        <div id="revised-analysis" class="page">
+            <div class="nav-bar">
+                <button class="nav-link back-button" onclick="showPage('post-meeting')">← Back to Post-Meeting</button>
+                <div class="nav-title">Revised IEP Analysis</div>
+                <div></div>
+            </div>
+            
+            <div class="card">
+                <div style="background: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+                    <h3 style="color: #155724; margin-bottom: 8px;">✅ Revised IEP Analysis</h3>
+                    <p style="color: #155724; margin: 0;">We've compared your meeting notes and previous document</p>
                 </div>
                 
                 <div class="section">
@@ -940,17 +1259,33 @@
                         <span class="section-icon">✅</span>
                         Items Confirmed Correct
                     </div>
-                    <div class="list-item">
-                        <strong>Annual Review Date:</strong> April 15, 2025 ✓
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-header">
+                            <div class="comparison-title">Annual Review Date: September 15, 2025 ✓</div>
+                            <div class="status-badge status-correct">Correct</div>
+                        </div>
                     </div>
-                    <div class="list-item">
-                        <strong>Occupational Therapy:</strong> 2 sessions per week, 30 minutes each ✓
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-header">
+                            <div class="comparison-title">Occupational Therapy: 2 sessions per week, 30 minutes each ✓</div>
+                            <div class="status-badge status-correct">Correct</div>
+                        </div>
                     </div>
-                    <div class="list-item">
-                        <strong>AAC Consultation:</strong> Monthly consultation with specialist ✓
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-header">
+                            <div class="comparison-title">AAC Consultation: Monthly consultation with specialist ✓</div>
+                            <div class="status-badge status-correct">Correct</div>
+                        </div>
                     </div>
-                    <div class="list-item">
-                        <strong>Classroom Placement:</strong> General education with support ✓
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-header">
+                            <div class="comparison-title">Classroom Placement: General education with support ✓</div>
+                            <div class="status-badge status-correct">Correct</div>
+                        </div>
                     </div>
                 </div>
                 
@@ -959,54 +1294,76 @@
                         <span class="section-icon">⚠️</span>
                         Potential Issues Detected
                     </div>
-                    <div style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 8px; padding: 20px; margin-bottom: 16px;">
-                        <div style="display: flex; align-items: flex-start; gap: 12px;">
-                            <span style="font-size: 24px;">⚠️</span>
-                            <div>
-                                <h4 style="color: #856404; margin: 0 0 8px 0;">Speech-Language Therapy Discrepancy</h4>
-                                <p style="margin: 0 0 8px 0; color: #856404;"><strong>Issue:</strong> This IEP states Sarah will receive 20 hours of speech therapy per week, whereas the meeting agreement was 2 hours per week.</p>
-                                <p style="margin: 0; color: #856404; font-size: 14px;"><strong>Recommendation:</strong> This is an extraordinary amount and likely a typo, but we recommend you touch base with the school to clarify this discrepancy.</p>
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-header">
+                            <div class="comparison-title">Speech-Language Therapy Discrepancy</div>
+                            <div class="status-badge status-issue">Issue</div>
+                        </div>
+                        <div class="comparison-content">
+                            <p><strong>Original IEP:</strong> 2 sessions per week, 30 minutes each</p>
+                            <p><strong>Meeting notes:</strong> 3 sessions per week, 30 minutes each</p>
+                            <p><strong>Revised IEP shows:</strong> 2 sessions per week, 30 minutes each</p>
+                            <div class="analysis-note">
+                                <strong>⚠️ Analysis:</strong> The revised IEP may not reflect the meeting discussion. You agreed to 3 sessions per week, but the school is likely back to listing the original 2 sessions. This is a common discrepancy.
                             </div>
                         </div>
                     </div>
-                    <div style="color: #198754; font-weight: 500; padding: 12px; background: #f8f9fa; border-radius: 6px; border-left: 4px solid #198754;">
-                        ✅ No other errors detected
-                    </div>
                 </div>
                 
-                <div style="margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                    <button class="secondary-button" onclick="showPage('post-meeting')">← Back to Post-Meeting</button>
-                    <button class="action-button" onclick="showPage('homepage')">Complete Analysis</button>
+                <div class="section">
+                    <div class="section-title">
+                        <span class="section-icon">📋</span>
+                        See All Items Detected
+                    </div>
+                    <button class="complete-analysis-button" onclick="showComingSoon()">Complete Analysis</button>
                 </div>
             </div>
         </div>
+    </div>
 
+    <!-- Coming Soon Modal -->
+    <div class="overlay" id="overlay" onclick="hideComingSoon()"></div>
+    <div class="coming-soon" id="coming-soon">
+        <h3 style="margin-bottom: 16px;">Coming Soon!</h3>
+        <p style="margin-bottom: 24px; color: #6c757d;">This feature is not yet available in the prototype.</p>
+        <button class="secondary-button" onclick="hideComingSoon()">Close</button>
     </div>
 
     <script>
         function showPage(pageId) {
+            // Hide all pages
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
             document.getElementById(pageId).classList.add('active');
+            
+            // Scroll to top of page
             window.scrollTo(0, 0);
         }
         
+        function showComingSoon() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('coming-soon').style.display = 'block';
+        }
+        
+        function hideComingSoon() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('coming-soon').style.display = 'none';
+        }
+        
         // File upload handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const iepFile = document.getElementById('iep-file');
-            if (iepFile) {
-                iepFile.addEventListener('change', function() {
-                    if (this.files.length > 0) {
-                        const uploadArea = this.parentElement;
-                        uploadArea.innerHTML = `
-                            <div class="upload-icon">✓</div>
-                            <div class="upload-text">IEP Document Uploaded</div>
-                            <div class="upload-subtext">${this.files[0].name}</div>
-                        `;
-                        uploadArea.style.borderColor = '#6c757d';
-                        uploadArea.style.background = '#f8f9fa';
-                    }
-                });
+        document.getElementById('iep-file').addEventListener('change', function() {
+            if (this.files.length > 0) {
+                const uploadArea = this.parentElement;
+                uploadArea.innerHTML = `
+                    <div class="upload-icon">✓</div>
+                    <div class="upload-text">IEP Document Uploaded</div>
+                    <div class="upload-subtext">${this.files[0].name}</div>
+                `;
+                uploadArea.style.borderColor = '#6c757d';
+                uploadArea.style.background = '#f8f9fa';
             }
         });
     </script>
